@@ -3,3 +3,4 @@ p-23: heap
 p-25: single list reverse
 p-28: kmp
 p-31: next permutation
+p-43: big int (not finished)
