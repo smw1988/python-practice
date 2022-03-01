@@ -16,24 +16,18 @@ class Solution:
             t[i] = t[i + 1] - t[i]
         t[count] = None
 
-        #print(t)
-
         a1 = [t[0]] * count # a1[i] is max profit for ops in p[0] to [i]
         a2 = [t[count - 1]] * count # a2[i] is max profit for ops in p[i] to p[count - 1]
         
         for i in range(1, count):
             a1[i] = a1[i - 1] + t[i] if a1[i - 1] > 0 else t[i]
-        #print(a1)
         for i in range(1, count):
             a1[i] = max(a1[i - 1], a1[i])
-        #print(a1)
 
         for i in range(count - 2, -1, -1):
             a2[i] = a2[i + 1] + t[i] if a2[i + 1] > 0 else t[i]
-        #print(a2)
         for i in range(count - 2, -1, -1):
             a2[i] = max(a2[i + 1], a2[i])
-        #print(a2)
                 
         m = max(0, a1[count - 1])
         for i in range(count - 1):
